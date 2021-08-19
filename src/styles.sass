@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base'
+@import 'tailwindcss/components'
+@import 'tailwindcss/utilities'
+
+*
+  font-family: 'Poppins'
+
+form
+  span
+    @apply text-gray-400
+
+.underline-input
+  @apply mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black
+
+.checkbox-input
+  @apply rounded border-gray-300 text-[#61acb3] shadow-sm focus:border-[#61acb3] focus:ring focus:ring-offset-0 focus:ring-[#61acb3] focus:ring-opacity-50
+
+.ng-invalid.ng-dirty.ng-touched:not(form)
+  @apply border-red-500 focus:border-red-500
