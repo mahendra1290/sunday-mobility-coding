@@ -1,1 +1,15 @@
-<p>users works!</p>
+<div class="px-8 flex flex-col justify-items-stretch h-full py-8">
+  <h1 class="text-lg">Users</h1>
+  <div class="mt-4 border-2 rounded-sm flex-grow overflow-y-scroll">
+    <p class="px-4 flex justify-between flex-wrap items-center text-sm py-2 bg-gray-50 border-b-2 border-blue-400"
+      *ngFor="let user of $users | async">
+      <span>{{user.name}}</span>
+
+      <span class="text-gray-600">
+        <{{user.email}}>
+      </span>
+
+    </p>
+
+  </div>
+</div>

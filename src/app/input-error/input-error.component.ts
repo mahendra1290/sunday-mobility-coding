@@ -8,7 +8,13 @@ import { AbstractControl } from '@angular/forms';
 })
 export class InputErrorComponent implements OnInit {
   @Input()
-  formControl!: AbstractControl;
+  fieldControl!: AbstractControl | null;
+
+  @Input()
+  hint: string = '';
+
+  @Input()
+  fieldName!: string;
 
   constructor() {}
 

@@ -1,4 +1,24 @@
-<div class="mt-4 h-[40rem] shadow-xl rounded-md flex w-[95%] md:w-[80%] mx-auto">
+<div class="w-full flex justify-between px-4 py-4 shadow-md bg-gray-100">
+  <div class="flex items-center gap-4">
+
+    <a class="cursor-pointer text-xl" routerLink="/users" *ngIf="!authService.isLoggedIn()">
+      Sunday Mobility
+    </a>
+    <p class="text-xl text-gray-800 font-bold" *ngIf="authService.isLoggedIn()">
+      Hi {{(authService.user | async)?.name}}
+    </p>
+  </div>
+  <div class="flex items-center gap-2">
+
+    <a class="cursor-pointer" *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</a>
+    <a class="cursor-pointer" routerLink="/login" *ngIf="!authService.isLoggedIn()"
+      (click)="authService.logout()">Login</a>
+    <a class="cursor-pointer" routerLink="/register" *ngIf="!authService.isLoggedIn()"
+      (click)="authService.logout()">Register</a>
+  </div>
+</div>
+
+<div class="mt-4 h-[40rem] shadow-xl rounded-md overflow-hidden flex w-[95%] md:w-[80%] mx-auto">
   <div class="hidden lg:block background w-[60%]">
 
   </div>

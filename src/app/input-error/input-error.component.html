@@ -1,9 +1,12 @@
-<div *ngIf="formControl?.invalid && (formControl?.dirty || formControl?.touched)"
+<div *ngIf="fieldControl?.invalid && (fieldControl?.dirty || fieldControl?.touched)"
   class="alert text-xs text-red-500">
-  <div *ngIf="formControl?.errors?.required">
-    *Email is required.
+  <div *ngIf="fieldControl?.errors?.required">
+    *{{fieldName}} is required.
   </div>
-  <div *ngIf="formControl?.errors?.formControl">
-    *Invalid formControl format.
+  <div *ngIf="hint && !fieldControl?.errors?.required">
+    {{hint}}
+  </div>
+  <div *ngIf="!hint && fieldControl?.errors?.pattern">
+    *Invalid {{fieldName}} format.
   </div>
 </div>
