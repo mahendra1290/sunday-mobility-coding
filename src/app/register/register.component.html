@@ -34,7 +34,8 @@
       <span>Password</span>
 
       <input formControlName="password" class="underline-input" type="password" name="password" id="password">
-      <app-input-error fieldName="Password" [fieldControl]="password"></app-input-error>
+      <app-input-error hint="Minimum eight characters, at least one letter, one number and one special character:"
+        fieldName="Password" [fieldControl]="password"></app-input-error>
     </label>
 
     <label class="block">

@@ -17,6 +17,9 @@ import {
 export class RegisterComponent implements OnInit {
   emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
+  passwordRegEx =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
   errorMessage = '';
 
   loading: boolean = false;
@@ -25,7 +28,10 @@ export class RegisterComponent implements OnInit {
     name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
     mobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
     email: ['', [Validators.required, Validators.pattern(this.emailRegEx)]],
-    password: ['', [Validators.required]],
+    password: [
+      '',
+      [Validators.required, Validators.pattern(this.passwordRegEx)],
+    ],
     confirmPassword: ['', [Validators.required]],
   });
 
