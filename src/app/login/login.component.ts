@@ -9,8 +9,10 @@ import { AuthenticationService, AuthError } from '../authentication.service';
   styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
+  emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
   loginForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.pattern(this.emailRegEx)]],
     password: ['', Validators.required],
   });
 
@@ -31,8 +33,6 @@ export class LoginComponent implements OnInit {
       (user) => {
         this.loading = false;
         this.router.navigate(['users']);
-        console.log(user);
-
       },
       (error: AuthError) => {
         this.loading = false;

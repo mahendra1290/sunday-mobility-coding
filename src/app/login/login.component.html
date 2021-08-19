@@ -14,15 +14,7 @@
       <input class="underline-input" formControlName="email" type="email" name="email" id="email"
         aria-placeholder="email">
 
-      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)"
-        class="alert text-xs text-red-500">
-        <div *ngIf="email?.errors?.required">
-          *Email is required.
-        </div>
-        <div *ngIf="email?.errors?.email">
-          *Invalid email format.
-        </div>
-      </div>
+      <app-input-error fieldName="Email" [fieldControl]="email"></app-input-error>
 
     </label>
 
@@ -30,12 +22,7 @@
       <span>Password</span>
       <input class="underline-input" formControlName="password" type="password" name="password"
         aria-placeholder="password">
-      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)"
-        class="alert text-xs text-red-500">
-        <div *ngIf="password?.errors?.required">
-          *Password is required.
-        </div>
-      </div>
+      <app-input-error fieldName="Password" [fieldControl]="password"></app-input-error>
     </label>
 
 
