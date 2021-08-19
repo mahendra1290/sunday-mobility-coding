@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
+import { InputErrorComponent } from './input-error/input-error.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { UsersComponent } from './users/users.component';
     RegisterComponent,
     LoginComponent,
     UsersComponent,
+    InputErrorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "nit-time-table"
+  },
+  "targets": {
+    "nit-time-table": {
+      "hosting": {
+        "sunday-mobility": [
+          "sunday-mobility-assignment"
+        ]
+      }
+    }
   }
 }
