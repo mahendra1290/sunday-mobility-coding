@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "sunday-mobility-assignment",
     "public": "build/sunday-mobility",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
