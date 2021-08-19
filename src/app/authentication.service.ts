@@ -27,9 +27,9 @@ export class AuthenticationService {
 
   constructor() {
     this.registeredUsers = JSON.parse(
-      sessionStorage.getItem(this.REGISTERED_USERS) || '[]'
+      localStorage.getItem(this.REGISTERED_USERS) || '[]'
     );
-    const loggedUser = sessionStorage.getItem(this.LOGGED_IN_USER);
+    const loggedUser = localStorage.getItem(this.LOGGED_IN_USER);
     if (loggedUser) {
       this.user.next(JSON.parse(loggedUser));
     }
@@ -59,7 +59,7 @@ export class AuthenticationService {
       if (user != undefined && authError === null) {
         subscriber.next(user);
         subscriber.complete();
-        sessionStorage.setItem(this.LOGGED_IN_USER, JSON.stringify(user));
+        localStorage.setItem(this.LOGGED_IN_USER, JSON.stringify(user));
         this.user.next(user);
       } else {
         subscriber.error(authError);
@@ -68,7 +68,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    sessionStorage.removeItem(this.LOGGED_IN_USER);
+    localStorage.removeItem(this.LOGGED_IN_USER);
     this.user.next(null);
   }
 
@@ -79,7 +79,7 @@ export class AuthenticationService {
   registerUser(user: User): Observable<User> {
     if (!this.isEmailUsed(user.email)) {
       this.registeredUsers.push(user);
-      sessionStorage.setItem(
+      localStorage.setItem(
         this.REGISTERED_USERS,
         JSON.stringify(this.registeredUsers)
       );

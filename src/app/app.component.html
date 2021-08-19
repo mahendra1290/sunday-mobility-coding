@@ -11,7 +11,7 @@
   <div class="flex items-center gap-2">
 
     <a class="cursor-pointer" *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</a>
-    <a class="cursor-pointer" routerLink="/login" *ngIf="!authService.isLoggedIn()"
+    <a class="cursor-pointer hover:scale-105" routerLink="/login" *ngIf="!authService.isLoggedIn()"
       (click)="authService.logout()">Login</a>
     <a class="cursor-pointer" routerLink="/register" *ngIf="!authService.isLoggedIn()"
       (click)="authService.logout()">Register</a>
